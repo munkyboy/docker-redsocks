@@ -5,4 +5,4 @@ RUN apt-get -qy install redsocks
 
 ADD redsocks.conf /tmp/
 ADD redsocks /usr/local/bin/
-CMD "/usr/local/bin/redsocks"
+ENTRYPOINT ["/usr/local/bin/redsocks"]

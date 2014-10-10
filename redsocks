@@ -49,4 +49,4 @@ if [ ! -z "$https_proxy" ] ; then
   echo
 fi
 
-/usr/sbin/redsocks -c /tmp/redsocks.conf
+exec /usr/sbin/redsocks -c /tmp/redsocks.conf
