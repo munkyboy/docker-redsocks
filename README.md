@@ -12,13 +12,13 @@ specific ports 80 and 443 to the redsocks daemon (see below).
 ### Start Container
 
 #### Simple Example for HTTP Proxy only
-(Change `http://yourproxy_IP_address_or_name:8080` by the IP address or name and TCP port that fits to your environment and add -e https_proxy, if needed.)
+Change `http://yourproxy_IP_address_or_name:8080` by the IP address or name and TCP port that fits to your environment:
 ```
 docker run --net=host -e http_proxy=http://yourproxy_IP_address_or_name:8080 munkyboy/redsocks
 ```
 
 #### Example with HTTP proxy and HTTPS Proxy pointing to the same proxy URL
-(Change `http://yourproxy_IP_address_or_name:8080` by the IP address or name and TCP port that fits to your environment and add -e https_proxy, if needed.)
+Change `http://yourproxy_IP_address_or_name:8080` by the IP address or name and TCP port that fits to your environment:
 ```
 export my_proxy=http://yourproxy_IP_address_or_name:8080
 docker run --net=host -e http_proxy=$my_proxy -e https_proxy=$my_proxy munkyboy/redsocks
