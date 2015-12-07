@@ -14,7 +14,7 @@ docker run --net=host -e http_proxy=http://yourproxy_IP_address_or_name:8080 mun
 ```
 Change `http://yourproxy_IP_address_or_name:8080` by the IP address or name and TCP port that fits to your environment and add -e https_proxy, if needed.
 
-Example with HTTP proxy and HTTPS Proxy:
+Example with HTTP proxy and HTTPS Proxy pointing to the same proxy URL:
 
 ```
 export my_proxy=http://yourproxy_IP_address_or_name:8080
