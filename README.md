@@ -39,16 +39,16 @@ iptables -t nat -D PREROUTING -p tcp --dport 443 -j REDIRECT --to 12346
 
 #### Caveats
 The container is sharing the Docker host's network and is listening to port `12345` and `12346`. If this port is already in use, you might need to start the docker container without `--net=host` switch, but with a port mapping instead, e.g.
-```
+<pre>
 export my_proxy=http://yourproxy_IP_address_or_name:8080
-docker run -p 54321:12345 -p 64321:12346 -e http_proxy=$my_proxy -e https_proxy=$my_proxy munkyboy/redsocks
+docker run -p <b>54321</b>:12345 -p <b>64321</b>:12346 -e http_proxy=$my_proxy -e https_proxy=$my_proxy munkyboy/redsocks
 unset my_proxy
-```
+</pre>
 In this case the you need to redirect your traffic to the mapped port (`54321` in this example), e.g. 
-```
-iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to 54321
-iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to 64321
-```
+<pre>
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to <b>54321</b>
+iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to <b>64321</b>
+</pre>
 The container cannot be not aware of this port mapping and therefore it will try confusing you with iptable examples with ports `12345` and `12346`.
 :blush:
 
