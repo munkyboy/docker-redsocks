@@ -8,8 +8,9 @@ After starting the container, you will then issue iptable commands to redirect
 specific ports to the redsocks daemon.
 
 to run:
+
 ```
-docker run --net=host -e http_proxy=http://1.2.3.4:3128 redsocks
+docker run --net=host -e http_proxy=http://yourproxy.company.com:8080 -e https_proxy=http://yourproxy.company.com:8080 munkyboy/redsocks
 ```
 
 The container currently interprets the environment variables `http_proxy` and
