@@ -1,7 +1,9 @@
-FROM debian:wheezy
+FROM debian:jessie
 
-RUN apt-get -q update
-RUN apt-get -qy install redsocks
+RUN apt-get update \
+ && apt-get install -y redsocks \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
 
 ADD redsocks.conf /tmp/
 ADD redsocks /usr/local/bin/
